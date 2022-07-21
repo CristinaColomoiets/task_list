@@ -1,9 +1,6 @@
 @charset "UTF-8";
-
 /*---------------------------------- RESET --------------------------------------*/
-
 /* Reseteamos los margin y paddings de todas las etiquetas */
-
 * {
   margin: 0;
   padding: 0;
@@ -128,13 +125,157 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.etiqueta{
+.etiqueta {
   width: 1%;
   /* Siempre en %, a excepción de algún icono o círculo */
   max-width: 1px;
   /*  Siempre en PX / REM */
 }
 
-*{
+* {
   /*box-shadow: 0 0 0 1px rgba(0, 255, 4, 0.4);*/
+}
+
+.to_do {
+  width: 80%;
+  margin: 3rem auto;
+  padding: 2rem 0;
+  background-color: darkslategrey;
+  border-radius: 2rem;
+}
+.to_do-wrapper-input {
+  width: 95%;
+  margin: auto;
+  padding: 2rem 0;
+  background-color: goldenrod;
+  border-radius: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.to_do-input {
+  width: 90%;
+  padding: 1.2rem 1rem;
+  background-color: #efc14c;
+  border-radius: 2rem;
+}
+.to_do-button-add {
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #efc14c;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+.to_do-svg-plus {
+  width: 2rem;
+  height: 2rem;
+  color: darkslategrey;
+}
+.to_do-wrapper-will-do {
+  width: 95%;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 2rem;
+  background-color: #466969;
+}
+.to_do-h2-tittle {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: goldenrod;
+  margin: 0 0 1rem 0;
+}
+.to_do-li-task-box {
+  width: 95%;
+  margin: 1rem auto;
+  padding: 1rem 0.5rem;
+  border: 1px solid goldenrod;
+  border-radius: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+.to_do-box-svg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  color: goldenrod;
+}
+.to_do-button-task {
+  margin: 0 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1px solid goldenrod;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+.to_do-button-task:hover {
+  border: 1px solid #efc14c;
+}
+.to_do-button-task:hover .to_do-svg-task {
+  color: #efc14c;
+}
+.to_do-svg-task {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.to_do-wrapper-completed {
+  width: 95%;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 2rem;
+  background-color: #466969;
 }
