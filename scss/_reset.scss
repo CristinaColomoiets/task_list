@@ -4,7 +4,7 @@
 @charset "UTF-8";
 
 /* Reseteamos los margin y paddings de todas las etiquetas */
-* {
+*{
   margin: 0;
   padding: 0;
   border: 0;
@@ -14,6 +14,7 @@
 }
 
 :root{
+  --color-h1: darkslategrey;
   --bg-color: blanchedalmond;
   --bg-input: goldenrod;
   --bg-task: darkslategrey;
@@ -26,6 +27,7 @@
   --color-txt-inputs: white;
   --color-txt-done: grey;
   --hover-color: rgb(239, 193, 76);
+  --fonts: 'Montserrat', sans-serif;
   
 }
 
