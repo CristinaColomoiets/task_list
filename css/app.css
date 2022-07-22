@@ -23,7 +23,7 @@
   --color-svg: goldenrod;
   --color-txt-inputs: white;
   --color-txt-done: grey;
-  --hover-color: rgb(239, 193, 76);
+  --hover-color: rgb(245, 204, 100);
   --fonts: "Montserrat", sans-serif;
 }
 
@@ -208,6 +208,11 @@ body {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.to_do-button-add:hover {
+  background-color: var(--hover-color);
 }
 .to_do-svg-plus {
   width: 2rem;
@@ -231,7 +236,7 @@ body {
 .to_do-li-task-box {
   width: 95%;
   margin: 1rem auto;
-  padding: 1rem 0.5rem;
+  padding: 0.5rem 0.5rem;
   border: 1px solid var(--color-border);
   border-radius: 2rem;
   display: -webkit-box;

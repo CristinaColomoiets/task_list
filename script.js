@@ -1,11 +1,12 @@
 'use strict'
 
-/*  Antes de nada: Maquetar
+/*  Antes de nada: Maquetar --- ✓
 
     1. Boton 'Añadir' tiene que recoger el valor del INPUT:
-        - Seleccionar el Input
+        - Crear el Evento con el boton ADD --- ✓
+        - Seleccionar el Input --- ✓
         - Comprobar si el Valor es vacio 
-        - Coger y guardar el Valor en una variable
+        - Coger y guardar el Valor en una variable --- ✓
         - Vaciar el Input despues de añadir la tarea a la lista por Hacer
 
         Guardar el Valor en el Array de tareas por Hacer // push
@@ -30,20 +31,45 @@
     5. Poner tareas en los objetos y array
 */
 
-
-
 // ESTADO. Opciones de crear OBJETOS de dos tipos. EJEMPLOS:
-let tareas = {
-    porHacer:[
-        'HTML', 'CSS'
-    ],
-    completadas:[
-        {nombre: 'HTML'},
-        {nombre: 'JS'},
-    ]
-}
+// let tareas = {
+//     porHacer:[
+//         'HTML', 'CSS'
+//     ],
+//     completadas:[
+//         {nombre: 'HTML'},
+//         {nombre: 'JS'},
+//     ]
+// }
 
-let tareas = [
-    {nombre: 'HTML', estado: 'TO DO'},
-    {nombre: 'HTML', estado: 'DONE'},
-]
+// let tareas = [
+//     {nombre: 'HTML', estado: 'TO DO'},
+//     {nombre: 'HTML', estado: 'DONE'},
+// ]
+
+
+
+
+//---------------------------------------------------------------------------------------------
+
+
+
+
+// Accedo al INPUT:
+let node_input = document.querySelector('#input');
+console.log(node_input);
+
+
+// Creo el EVENTO con el BOTON 'add' 
+// Accedo al BOTON:
+let btn_add = document.querySelector('#button_add');
+
+btn_add.addEventListener('click', function(){
+    console.log('Boton ADD conectado');
+
+    // Recojo el VALOR del INPUT:
+    let input_value = node_input.value;
+    console.log('Valor del INPUT es:', input_value);
+});
+
+
