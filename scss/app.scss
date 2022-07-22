@@ -2,7 +2,7 @@
 
 
 body{
-    //background-color: grey;
+    background-color:blanchedalmond;
 }
 .to_do{
     width: 80%;
@@ -118,6 +118,23 @@ body{
         padding: 1rem;
         border-radius: 2rem;
         background-color: rgb(70, 105, 105);
+    }
+
+    .box-desactive{
+        border: 1px solid grey;
+        transition: all .7s ease;
+    }
+
+    .btn-desactive{
+        border: 1px solid grey;
+
+        &:hover{
+            border: 1px solid rgb(239, 193, 76);
+        }
+    }
+
+    .svg-desactive{
+        color: grey;
     }
 
 }

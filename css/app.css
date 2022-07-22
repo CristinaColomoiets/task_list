@@ -136,6 +136,10 @@ body {
   /*box-shadow: 0 0 0 1px rgba(0, 255, 4, 0.4);*/
 }
 
+body {
+  background-color: blanchedalmond;
+}
+
 .to_do {
   width: 80%;
   margin: 3rem auto;
@@ -278,4 +282,18 @@ body {
   padding: 1rem;
   border-radius: 2rem;
   background-color: #466969;
+}
+.to_do .box-desactive {
+  border: 1px solid grey;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+.to_do .btn-desactive {
+  border: 1px solid grey;
+}
+.to_do .btn-desactive:hover {
+  border: 1px solid #efc14c;
+}
+.to_do .svg-desactive {
+  color: grey;
 }
