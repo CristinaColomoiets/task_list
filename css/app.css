@@ -254,7 +254,7 @@ body {
           align-items: center;
   color: var(--color-txt-inputs);
 }
-.to_do-box-svg {
+.to_do-box-buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -265,6 +265,9 @@ body {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: var(--color-svg);
 }
 .to_do-button-task {

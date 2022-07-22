@@ -92,10 +92,11 @@ body{
         color: var(--color-txt-inputs);
     }
 
-    &-box-svg{
+    &-box-buttons{
         display: flex;
         flex-flow: row;
         justify-content: flex-end;
+        align-items: center;
         color: var(--color-svg);
     }
     
