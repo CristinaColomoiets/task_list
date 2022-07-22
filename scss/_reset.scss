@@ -14,12 +14,19 @@
 }
 
 :root{
-  --bg-color: #f6efe4;
-  --header-color: #fceccf;
-  --nav-bg: #d7c9af;
-  --txt-button: #fceccf;
-  --hover-color: #f99002;
-  --overlay-bg: #d7c9af;
+  --bg-color: blanchedalmond;
+  --bg-input: goldenrod;
+  --bg-task: darkslategrey;
+  --bg-section: #466969;
+  --color-input: rgb(239, 193, 76);
+  --color-btn-add: rgb(239, 193, 76);
+  --color-tittle: goldenrod;
+  --color-border: goldenrod;
+  --color-svg: goldenrod;
+  --color-txt-inputs: white;
+  --color-txt-done: grey;
+  --hover-color: rgb(239, 193, 76);
+  
 }
 
 /* Evitamos problemas con las imagenes */

@@ -11,12 +11,18 @@
 }
 
 :root {
-  --bg-color: #f6efe4;
-  --header-color: #fceccf;
-  --nav-bg: #d7c9af;
-  --txt-button: #fceccf;
-  --hover-color: #f99002;
-  --overlay-bg: #d7c9af;
+  --bg-color: blanchedalmond;
+  --bg-input: goldenrod;
+  --bg-task: darkslategrey;
+  --bg-section: #466969;
+  --color-input: rgb(239, 193, 76);
+  --color-btn-add: rgb(239, 193, 76);
+  --color-tittle: goldenrod;
+  --color-border: goldenrod;
+  --color-svg: goldenrod;
+  --color-txt-inputs: white;
+  --color-txt-done: grey;
+  --hover-color: rgb(239, 193, 76);
 }
 
 /* Evitamos problemas con las imagenes */
@@ -137,21 +143,21 @@ body {
 }
 
 body {
-  background-color: blanchedalmond;
+  background-color: var(--bg-color);
 }
 
 .to_do {
   width: 80%;
   margin: 3rem auto;
   padding: 2rem 0;
-  background-color: darkslategrey;
+  background-color: var(--bg-task);
   border-radius: 2rem;
 }
 .to_do-wrapper-input {
   width: 95%;
   margin: auto;
   padding: 2rem 0;
-  background-color: goldenrod;
+  background-color: var(--bg-input);
   border-radius: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -169,13 +175,13 @@ body {
 .to_do-input {
   width: 90%;
   padding: 1.2rem 1rem;
-  background-color: #efc14c;
+  background-color: var(--color-input);
   border-radius: 2rem;
 }
 .to_do-button-add {
   width: 3.5rem;
   height: 3.5rem;
-  background-color: #efc14c;
+  background-color: var(--color-btn-add);
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -202,20 +208,20 @@ body {
   margin: 2rem auto;
   padding: 1rem;
   border-radius: 2rem;
-  background-color: #466969;
+  background-color: var(--bg-section);
 }
 .to_do-h2-tittle {
   text-align: center;
   text-transform: uppercase;
   font-weight: 600;
-  color: goldenrod;
+  color: var(--color-tittle);
   margin: 0 0 1rem 0;
 }
 .to_do-li-task-box {
   width: 95%;
   margin: 1rem auto;
   padding: 1rem 0.5rem;
-  border: 1px solid goldenrod;
+  border: 1px solid var(--color-border);
   border-radius: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -230,7 +236,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: white;
+  color: var(--color-txt-inputs);
 }
 .to_do-box-svg {
   display: -webkit-box;
@@ -243,14 +249,14 @@ body {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  color: goldenrod;
+  color: var(--color-svg);
 }
 .to_do-button-task {
   margin: 0 0.5rem;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  border: 1px solid goldenrod;
+  border: 1px solid var(--color-border);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -265,34 +271,36 @@ body {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 .to_do-button-task:hover {
-  border: 1px solid #efc14c;
+  border: 1px solid var(--hover-color);
 }
 .to_do-button-task:hover .to_do-svg-task {
-  color: #efc14c;
+  color: var(--hover-color);
 }
 .to_do-svg-task {
   width: 1.5rem;
   height: 1.5rem;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 .to_do-wrapper-completed {
   width: 95%;
   margin: 2rem auto;
   padding: 1rem;
   border-radius: 2rem;
-  background-color: #466969;
+  background-color: var(--bg-section);
 }
 .to_do .box-desactive {
   border: 1px solid grey;
-  -webkit-transition: all 0.7s ease;
-  transition: all 0.7s ease;
 }
 .to_do .btn-desactive {
   border: 1px solid grey;
 }
 .to_do .btn-desactive:hover {
-  border: 1px solid #efc14c;
+  border: 1px solid var(--hover-color);
 }
 .to_do .svg-desactive {
   color: grey;

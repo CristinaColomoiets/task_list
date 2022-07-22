@@ -2,20 +2,20 @@
 
 
 body{
-    background-color:blanchedalmond;
+    background-color:var(--bg-color);
 }
 .to_do{
     width: 80%;
     margin: 3rem auto;
     padding: 2rem 0;
-    background-color: darkslategrey;
+    background-color: var(--bg-task);
     border-radius: 2rem;
 
     &-wrapper-input{
         width: 95%;
         margin: auto;
         padding: 2rem 0;
-        background-color: goldenrod;
+        background-color: var(--bg-input);
         border-radius: 2rem;
         display: flex;
         flex-flow: row;
@@ -26,14 +26,14 @@ body{
     &-input{
         width: 90%;
         padding: 1.2rem 1rem;
-        background-color: rgb(239, 193, 76);
+        background-color: var(--color-input);
         border-radius: 2rem;
     }
 
     &-button-add{
         width: 3.5rem;
         height: 3.5rem;
-        background-color: rgb(239, 193, 76);
+        background-color: var(--color-btn-add);
         border-radius: 50%;
         display: flex;
         flex-flow: row;
@@ -53,14 +53,14 @@ body{
         margin: 2rem auto;
         padding: 1rem;
         border-radius: 2rem;
-        background-color: rgb(70, 105, 105);
+        background-color: var(--bg-section);
     }
 
     &-h2-tittle{
         text-align: center;
         text-transform: uppercase;
         font-weight: 600;
-        color: goldenrod;
+        color: var(--color-tittle);
         margin: 0 0 1rem 0;
     }
 
@@ -68,20 +68,20 @@ body{
         width: 95%;
         margin: 1rem auto;
         padding: 1rem .5rem;
-        border: 1px solid goldenrod;
+        border: 1px solid var(--color-border);
         border-radius: 2rem;
         display: flex;
         flex-flow: row;
         justify-content: space-between;
         align-items: center;
-        color: white;
+        color: var(--color-txt-inputs);
     }
 
     &-box-svg{
         display: flex;
         flex-flow: row;
         justify-content: flex-end;
-        color: goldenrod;
+        color: var(--color-svg);
     }
     
     &-button-task{
@@ -89,19 +89,20 @@ body{
         width: 3rem;
         height: 3rem;
         border-radius: 50%;
-        border: 1px solid goldenrod;
+        border: 1px solid var(--color-border);
         display: flex;
         flex-flow: row;
         justify-content: center;
         align-items: center;
         cursor: pointer;
+        transition: all .5s ease;
         
         &:hover{
-            border: 1px solid rgb(239, 193, 76);
+            border: 1px solid var(--hover-color);
         }
 
         &:hover .to_do-svg-task{
-            color: rgb(239, 193, 76);
+            color: var(--hover-color);
         }
         
     }
@@ -109,6 +110,7 @@ body{
     &-svg-task{
         width: 1.5rem;
         height: 1.5rem;
+        transition: all .5s ease;
     }
 
 
@@ -117,19 +119,18 @@ body{
         margin: 2rem auto;
         padding: 1rem;
         border-radius: 2rem;
-        background-color: rgb(70, 105, 105);
+        background-color: var(--bg-section);
     }
 
     .box-desactive{
         border: 1px solid grey;
-        transition: all .7s ease;
     }
 
     .btn-desactive{
         border: 1px solid grey;
 
         &:hover{
-            border: 1px solid rgb(239, 193, 76);
+            border: 1px solid var(--hover-color);
         }
     }
 
