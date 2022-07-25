@@ -115,7 +115,7 @@ function add_task(text){
     node_list_box.appendChild(task_box);
 
     createEventButtonTrash(btn_trash, task_box);
-    createEventButtonCheck(btn_check);
+    createEventButtonCheck(btn_check, text);
 }
 
 
@@ -154,8 +154,8 @@ function add_task_completed(value_txt_task){
     createEventButtonTrash(btn_trash, task_box);
 }
 
-function createEventButtonCheck(name_button){
+function createEventButtonCheck(name_button, task_text){
     name_button.addEventListener('click', function(){
-        add_task_completed(input_value);
+        add_task_completed(task_text);
     });
 }
