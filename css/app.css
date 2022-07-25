@@ -21,7 +21,7 @@
   --color-tittle: goldenrod;
   --color-border: goldenrod;
   --color-svg: goldenrod;
-  --color-txt-inputs: white;
+  --color-txt-task: goldenrod;
   --color-txt-done: grey;
   --hover-color: rgb(245, 204, 100);
   --fonts: "Montserrat", sans-serif;
@@ -188,6 +188,7 @@ body {
   padding: 1.2rem 1rem;
   background-color: var(--color-input);
   border-radius: 2rem;
+  color: var(--color-h1);
 }
 .to_do-button-add {
   width: 3.5rem;
@@ -219,7 +220,7 @@ body {
   height: 2rem;
   color: darkslategrey;
 }
-.to_do-wrapper-will-do {
+.to_do-section-task {
   width: 95%;
   margin: 2rem auto;
   padding: 1rem;
@@ -252,7 +253,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: var(--color-txt-inputs);
+  color: var(--color-txt-task);
 }
 .to_do-box-buttons {
   display: -webkit-box;
@@ -305,21 +306,55 @@ body {
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-.to_do-wrapper-completed {
-  width: 95%;
-  margin: 2rem auto;
-  padding: 1rem;
-  border-radius: 2rem;
-  background-color: var(--bg-section);
-}
 .to_do .box-desactive {
+  width: 95%;
+  margin: 1rem auto;
+  padding: 0.5rem 0.5rem;
   border: 1px solid grey;
+  border-radius: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: grey;
 }
 .to_do .btn-desactive {
+  margin: 0 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
   border: 1px solid grey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 .to_do .btn-desactive:hover {
   border: 1px solid var(--hover-color);
+}
+.to_do .btn-desactive:hover .to_do-svg-task {
+  color: var(--hover-color);
 }
 .to_do .svg-desactive {
   color: grey;

@@ -38,6 +38,7 @@ body{
         padding: 1.2rem 1rem;
         background-color: var(--color-input);
         border-radius: 2rem;
+        color: var(--color-h1);
     }
 
     &-button-add{
@@ -63,7 +64,7 @@ body{
         color: darkslategrey;
     }
 
-    &-wrapper-will-do{
+    &-section-task{
         width: 95%;
         margin: 2rem auto;
         padding: 1rem;
@@ -89,7 +90,7 @@ body{
         flex-flow: row;
         justify-content: space-between;
         align-items: center;
-        color: var(--color-txt-inputs);
+        color: var(--color-txt-task);
     }
 
     &-box-buttons{
@@ -130,23 +131,38 @@ body{
     }
 
 
-    &-wrapper-completed{
-        width: 95%;
-        margin: 2rem auto;
-        padding: 1rem;
-        border-radius: 2rem;
-        background-color: var(--bg-section);
-    }
-
     .box-desactive{
+        width: 95%;
+        margin: 1rem auto;
+        padding: .5rem .5rem;
         border: 1px solid grey;
+        border-radius: 2rem;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: center;
+        color: grey;
     }
 
     .btn-desactive{
+        margin: 0 .5rem;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
         border: 1px solid grey;
-
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all .5s ease;
+        
         &:hover{
             border: 1px solid var(--hover-color);
+        }
+
+        &:hover .to_do-svg-task{
+            color: var(--hover-color);
         }
     }
 
