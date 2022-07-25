@@ -353,9 +353,13 @@ body {
 .to_do .btn-desactive:hover {
   border: 1px solid var(--hover-color);
 }
-.to_do .btn-desactive:hover .to_do-svg-task {
+.to_do .btn-desactive:hover .svg-desactive {
   color: var(--hover-color);
 }
 .to_do .svg-desactive {
   color: grey;
+  width: 1.5rem;
+  height: 1.5rem;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }

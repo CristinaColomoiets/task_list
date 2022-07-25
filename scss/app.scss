@@ -161,13 +161,16 @@ body{
             border: 1px solid var(--hover-color);
         }
 
-        &:hover .to_do-svg-task{
+        &:hover .svg-desactive{
             color: var(--hover-color);
         }
     }
 
     .svg-desactive{
         color: grey;
+        width: 1.5rem;
+        height: 1.5rem;
+        transition: all .5s ease;
     }
 
 }
