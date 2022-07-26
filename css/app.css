@@ -326,6 +326,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   color: grey;
+  text-decoration: line-through;
 }
 .to_do .btn-desactive {
   margin: 0 0.5rem;

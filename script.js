@@ -55,9 +55,23 @@
 
 
 //---------------------------------------------------------------------------------------------
+// Creo lista de tareas:
+let list_task = [
+    // {name:"AAA", state: "TO_DO"},
+    // {name:"BBB", state: "DONE"}
+]
 
+let tasks = {
+    to_do:[ 
+       
+    ],
+    done:[
+      
+     ]
+}  
 
-
+console.log("LOCAL STORAGE" )
+console.log( JSON.stringify( tasks ) )
 
 // Accedo al INPUT:
 let node_input = document.querySelector('#input');
@@ -75,6 +89,9 @@ btn_add.addEventListener('click', function(){
     console.log('Valor del INPUT es:', input_value);
     
     if(node_input.value.trim() !== ''){
+
+        tasks.to_do.push( input_value );
+        console.log( tasks )
         add_task(input_value);
         node_input.value = '';
     }
@@ -156,6 +173,29 @@ function add_task_completed(value_txt_task){
 
 function createEventButtonCheck(name_button, task_text){
     name_button.addEventListener('click', function(){
+    // Quitar la tarea de tasks.todo
+    // Añadri la tarea en task complete
         add_task_completed(task_text);
+
+        tasks.done.push(task_text);
     });
+}
+
+
+function saveLocalStorage(){
+
+}
+
+
+
+
+
+// Ejemplo para encontra y eliminar un objeto de un Array:
+let letras = ['A','B','C'];
+
+let index = letras.indexOf( 'A' );// Busca dentro del array y devuleve el indeice que le corresponde
+console.log( index );
+
+if( index > -1){ // Index of devuelve -1 si el elemento que busca NO está dentro del array
+    letras.splice( index , 1 ) // A partir del indice sólo un elemento
 }
