@@ -55,23 +55,33 @@
 
 
 //---------------------------------------------------------------------------------------------
+
 // Creo lista de tareas:
-let list_task = [
-    // {name:"AAA", state: "TO_DO"},
-    // {name:"BBB", state: "DONE"}
-]
 
-let tasks = {
-    to_do:[ 
-       
-    ],
-    done:[
-      
-     ]
-}  
+let obj_tasks = {
+    to_do:[],
 
-console.log("LOCAL STORAGE" )
-console.log( JSON.stringify( tasks ) )
+    done:[]
+}
+
+
+
+// Comprobar y traer la información del L.S. :
+let json_list = localStorage.getItem('listaDeTareas');
+if(json_list){
+    // Convertir al Objeto
+    let parsed_list = JSON.parse(json_list);
+    obj_tasks = parsed_list;
+
+    for (let i = 0; i < obj_tasks.to_do.length; i++){
+        let tarea = obj_tasks.to_do[i];
+        add_task(tarea);
+    }
+}
+
+
+
+
 
 // Accedo al INPUT:
 let node_input = document.querySelector('#input');
@@ -90,8 +100,11 @@ btn_add.addEventListener('click', function(){
     
     if(node_input.value.trim() !== ''){
 
-        tasks.to_do.push( input_value );
-        console.log( tasks )
+        obj_tasks.to_do.push( input_value );
+        // Convertir en String:
+        let string_list = JSON.stringify(obj_tasks);
+        localStorage.setItem('listaDeTareas', string_list);
+
         add_task(input_value);
         node_input.value = '';
     }
@@ -99,10 +112,9 @@ btn_add.addEventListener('click', function(){
 
 
 // Creo la FUNCION que me añada tareas en la web:
-// Accedo a la seccion de tareas:
-let node_list_box = document.querySelector('#section-task-list');
-
 function add_task(text){
+    // Accedo a la seccion de tareas:
+    let node_list_box = document.querySelector('#section-task-list');
     // Creo el contenido dinamico para HTML:
     let task_box = document.createElement('li');
     task_box.classList.add('to_do-li-task-box');
@@ -143,9 +155,7 @@ function createEventButtonTrash(name_button, section_html){
 }
 
 
-
 let node_list_done = document.querySelector('#list-completed');
-
 function add_task_completed(value_txt_task){
     // Creo el contenido dinamico para HTML:
     let task_box = document.createElement('li');
@@ -174,23 +184,32 @@ function add_task_completed(value_txt_task){
 function createEventButtonCheck(name_button, task_text){
     name_button.addEventListener('click', function(){
     // Quitar la tarea de tasks.todo
-    // Añadri la tarea en task complete
+
+    // Añadir la tarea en task complete
         add_task_completed(task_text);
 
-        tasks.done.push(task_text);
+    // Añado tarea en el Array
+        obj_tasks.done.push(task_text);
     });
 }
 
 
-function saveLocalStorage(){
-
-}
 
 
 
 
 
-// Ejemplo para encontra y eliminar un objeto de un Array:
+
+
+
+
+
+
+
+
+
+
+// Ejemplo para encontrar y eliminar un objeto de un Array:
 let letras = ['A','B','C'];
 
 let index = letras.indexOf( 'A' );// Busca dentro del array y devuleve el indeice que le corresponde
