@@ -118,7 +118,7 @@ btn_add.addEventListener('click', function(){
 });
 
 
-// Creo la FUNCION que me añada tareas en la web:
+// Creo las FUNCIONES que me añada tareas en la web:
 function add_task(text){
     // Accedo a la seccion de tareas:
     let node_list_box = document.querySelector('#section-task-list');
@@ -154,14 +154,6 @@ function add_task(text){
     createEventButtonCheck(btn_check, text, task_box);
 }
 
-
-function createEventButtonTrash(name_button, section_html){
-    name_button.addEventListener('click', function(){
-        section_html.remove();
-    });
-}
-
-
 function add_task_completed(value_txt_task){
     let node_list_done = document.querySelector('#list-completed');
     // Creo el contenido dinamico para HTML:
@@ -188,9 +180,17 @@ function add_task_completed(value_txt_task){
     createEventButtonTrash(btn_trash, task_box);
 }
 
+
+// Creo Eventos con BOTONES:
+function createEventButtonTrash(name_button, section_html){
+    name_button.addEventListener('click', function(){
+        section_html.remove();
+    });
+}
+
 function createEventButtonCheck(name_button, task_text,task_box){
     name_button.addEventListener('click', function(){
-        
+
     // Quitar la tarea de tasks.to_do, task_text 
     let indexFound = obj_tasks.to_do.indexOf( task_text );
     if( indexFound > -1 ){                      // El indexFound si no encuentra nada devuelve -1
@@ -200,7 +200,7 @@ function createEventButtonCheck(name_button, task_text,task_box){
 
     // Eliminar VISUALMENTE la tarea del DOM
     task_box.remove();
-
+    
     // Añadir la tarea en task complete
     add_task_completed(task_text);
 
