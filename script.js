@@ -66,20 +66,27 @@ let obj_tasks = {
 
 
 
-// Comprobar y traer la información del L.S. :
+// Comprobar y traer la información de tareas 'por hacer' y 'completadas' del L.S. :
 let json_list = localStorage.getItem('listaDeTareas');
 if(json_list){
-    // Convertir al Objeto
+    // Convertir al Objeto -> Si hay datos en obj_task -> Tanto tareas por hacer como completadas
     let parsed_list = JSON.parse(json_list);
+    console.log(  parsed_list)
     obj_tasks = parsed_list;
 
+
+    // Si hay  tareas por hacer -> Las pinto
     for (let i = 0; i < obj_tasks.to_do.length; i++){
         let tarea = obj_tasks.to_do[i];
         add_task(tarea);
     }
+
+    // Si hay tareas completadas -> Las pinto
+    for (let i = 0; i < obj_tasks.done.length; i++){
+        let tarea = obj_tasks.done[i];
+        add_task_completed(tarea);
+    }
 }
-
-
 
 
 
@@ -101,7 +108,7 @@ btn_add.addEventListener('click', function(){
     if(node_input.value.trim() !== ''){
 
         obj_tasks.to_do.push( input_value );
-        // Convertir en String:
+        // Convertir en String: -> TODO obj_tasks , tanto completadas como por hacer
         let string_list = JSON.stringify(obj_tasks);
         localStorage.setItem('listaDeTareas', string_list);
 
@@ -144,7 +151,7 @@ function add_task(text){
     node_list_box.appendChild(task_box);
 
     createEventButtonTrash(btn_trash, task_box);
-    createEventButtonCheck(btn_check, text);
+    createEventButtonCheck(btn_check, text, task_box);
 }
 
 
@@ -155,8 +162,8 @@ function createEventButtonTrash(name_button, section_html){
 }
 
 
-let node_list_done = document.querySelector('#list-completed');
 function add_task_completed(value_txt_task){
+    let node_list_done = document.querySelector('#list-completed');
     // Creo el contenido dinamico para HTML:
     let task_box = document.createElement('li');
     task_box.classList.add('box-desactive');
@@ -181,15 +188,28 @@ function add_task_completed(value_txt_task){
     createEventButtonTrash(btn_trash, task_box);
 }
 
-function createEventButtonCheck(name_button, task_text){
+function createEventButtonCheck(name_button, task_text,task_box){
     name_button.addEventListener('click', function(){
-    // Quitar la tarea de tasks.todo
+        
+    // Quitar la tarea de tasks.to_do, task_text 
+    let indexFound = obj_tasks.to_do.indexOf( task_text );
+    if( indexFound > -1 ){                      // El indexFound si no encuentra nada devuelve -1
+        obj_tasks.to_do.splice( indexFound , 1 )// Elimino 1 elemento a partir del índice
+    }
+    console.log( obj_tasks );
+
+    // Eliminar VISUALMENTE la tarea del DOM
+    task_box.remove();
 
     // Añadir la tarea en task complete
-        add_task_completed(task_text);
+    add_task_completed(task_text);
 
     // Añado tarea en el Array
-        obj_tasks.done.push(task_text);
+    obj_tasks.done.push(task_text);
+
+    // Convertir en String: -> TODO obj_tasks , tanto completadas como por hacer
+    let string_list = JSON.stringify(obj_tasks);
+    localStorage.setItem('listaDeTareas', string_list);
     });
 }
 
@@ -210,11 +230,19 @@ function createEventButtonCheck(name_button, task_text){
 
 
 // Ejemplo para encontrar y eliminar un objeto de un Array:
-let letras = ['A','B','C'];
+//              0           1       2       3
+let letras = ['sandía','plátano','Pera', 'manzana'];
 
-let index = letras.indexOf( 'A' );// Busca dentro del array y devuleve el indeice que le corresponde
+let valorABuscar = 'plátano';
+
+let index = letras.indexOf( valorABuscar );// Busca dentro del array y devuleve el indeice que le corresponde
 console.log( index );
 
 if( index > -1){ // Index of devuelve -1 si el elemento que busca NO está dentro del array
     letras.splice( index , 1 ) // A partir del indice sólo un elemento
 }
+
+
+
+
+
