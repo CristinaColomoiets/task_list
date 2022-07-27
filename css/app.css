@@ -158,7 +158,8 @@ body {
 }
 
 .to_do {
-  width: 80%;
+  width: 90%;
+  max-width: 1400px;
   margin: auto;
   padding: 2rem 0;
   background-color: var(--bg-task);
@@ -167,7 +168,7 @@ body {
 .to_do-wrapper-input {
   width: 95%;
   margin: auto;
-  padding: 2rem 0;
+  padding: 2rem 0rem;
   background-color: var(--bg-input);
   border-radius: 2rem;
   display: -webkit-box;
@@ -363,4 +364,10 @@ body {
   height: 1.5rem;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+@media screen and (max-width: 950px) {
+  .to_do-input {
+    width: 80%;
+  }
 }

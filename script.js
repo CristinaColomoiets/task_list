@@ -7,9 +7,9 @@
         - Seleccionar el Input --- ✓
         - Comprobar si el Valor es vacio, si es asi no añadir esta tarea --- ✓
         - Coger y guardar el Valor en una variable --- ✓
-        - Vaciar el Input despues de añadir la tarea a la lista por Hacer--- ✓
+        - Vaciar el Input despues de añadir la tarea a la lista por Hacer --- ✓
 
-        Guardar el Valor en el Array de tareas por Hacer // push
+        Guardar el Valor en el Array de tareas por Hacer // push --- ✓
         Guardar los valores en Local Storage ---> falta por verlo
 
         y PINTAR en la zona de tareas por HACER --- ✓
@@ -17,35 +17,18 @@
     2. Completar tarea:
         - Eliminar tarea de la seccion por hacer:
             1. Crear el evento con boton(svg borrar)--- ✓
-        - Añadir la tarea a la seccion completadas (pintar) en esta seccion el boton tiene estar en verde --> Tiene
-          asociado evento de descompletar tarea
+        - Añadir la tarea a la seccion completadas (pintar) en esta seccion el boton tiene estar en verde --> Tiene 
+          asociado evento de descompletar tarea ---?
         - Eliminar tarea del array de tareas por Hacer
-        - Añadirlo en tareas Completadas
+        - Añadirlo en tareas Completadas --- ✓
 
     3. Eliminar tarea
         - Eliminar tarea del array que corresponde
         - Borrar la tarea de donde este
         -Actualizar local Storage
 
-    4. Crear funciones para cada proceso que se repite
-    5. Poner tareas en los objetos y array
-
-
-    ESTADO. Opciones de crear OBJETOS de dos tipos. EJEMPLOS:
-    let tareas = {
-        porHacer:[
-            'HTML', 'CSS'
-        ],
-         completadas:[
-            {nombre: 'HTML'},
-            {nombre: 'JS'},
-        ]
-    }
-
-    let tareas = [
-        {nombre: 'HTML', estado: 'TO DO'},
-        {nombre: 'HTML', estado: 'DONE'},
-    ]
+    4. Crear funciones para cada proceso que se repite --- ✓
+    5. Poner tareas en los objetos y array --- ✓
 
 */
 
@@ -54,19 +37,18 @@
 
 
 
-//---------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------
 
 // Creo lista de tareas:
 
 let obj_tasks = {
     to_do:[],
-
     done:[]
 }
 
 
 
-// Comprobar y traer la información del L.S. :
+// Comprobar y traer la información del L.S.  sobre tareas actuales:
 let json_list = localStorage.getItem('listaDeTareas');
 if(json_list){
     // Convertir al Objeto
@@ -80,17 +62,28 @@ if(json_list){
 }
 
 
+// Comprobar y traer la infornación de L.S. sobre tareas completadas:
+let json_list_done = localStorage.getItem('listaDone');
+if(json_list_done){
+    // convertir al Objeto
+    let parsed_list_done = JSON.parse(json_list_done);
+    obj_tasks = parsed_list_done;
+    for(let i = 0; i < obj_tasks.done.length; i++){
+        let tarea_done = obj_tasks.done[i];
+        add_task_completed(tarea_done);
+    }
+}
+
+
 
 
 
 // Accedo al INPUT:
 let node_input = document.querySelector('#input');
 
-
 // Creo el EVENTO con el BOTON 'add' 
 // Accedo al BOTON:
 let btn_add = document.querySelector('#button_add');
-
 btn_add.addEventListener('click', function(){
     console.log('Boton ADD conectado');
 
@@ -111,7 +104,7 @@ btn_add.addEventListener('click', function(){
 });
 
 
-// Creo la FUNCION que me añada tareas en la web:
+// Creo la FUNCION que me añade tareas en la web:
 function add_task(text){
     // Accedo a la seccion de tareas:
     let node_list_box = document.querySelector('#section-task-list');
@@ -155,8 +148,8 @@ function createEventButtonTrash(name_button, section_html){
 }
 
 
-let node_list_done = document.querySelector('#list-completed');
 function add_task_completed(value_txt_task){
+    let node_list_done = document.querySelector('#list-completed');
     // Creo el contenido dinamico para HTML:
     let task_box = document.createElement('li');
     task_box.classList.add('box-desactive');
@@ -183,13 +176,17 @@ function add_task_completed(value_txt_task){
 
 function createEventButtonCheck(name_button, task_text){
     name_button.addEventListener('click', function(){
-    // Quitar la tarea de tasks.todo
+        // Quitar la tarea de tasks.todo
 
-    // Añadir la tarea en task complete
+        // Añadir la tarea en task complete
         add_task_completed(task_text);
 
-    // Añado tarea en el Array
+        // Añado tarea en el Array
         obj_tasks.done.push(task_text);
+
+        // Convertir a STRING lo q traigo del L.S. :
+        let string_list_done = JSON.stringify(parsed_list_done);
+        localStorage.setItem('listaDone', string_list_done);
     });
 }
 
