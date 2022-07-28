@@ -108,7 +108,8 @@ btn_add.addEventListener('click', function(){
     if(node_input.value.trim() !== ''){
 
         obj_tasks.to_do.push( input_value );
-        // Convertir en String: -> TODO obj_tasks , tanto completadas como por hacer
+
+        // Convertir en String: -> TODO obj_tasks , tanto completadas comó por hacer
         let string_list = JSON.stringify(obj_tasks);
         localStorage.setItem('listaDeTareas', string_list);
 
@@ -150,7 +151,7 @@ function add_task(text){
     task_box.appendChild(box_buttons);
     node_list_box.appendChild(task_box);
 
-    createEventButtonTrash(btn_trash, task_box);
+    createEventButtonTrash(btn_trash, task_box, text, "to_do");
     createEventButtonCheck(btn_check, text, task_box);
 }
 
@@ -177,39 +178,51 @@ function add_task_completed(value_txt_task){
     task_box.appendChild(box_buttons);
     node_list_done.appendChild(task_box);
 
-    createEventButtonTrash(btn_trash, task_box);
+    createEventButtonTrash(btn_trash, task_box, value_txt_task, "done");
 }
 
 
 // Creo Eventos con BOTONES:
-function createEventButtonTrash(name_button, section_html){
+function createEventButtonTrash(name_button, section_html, name_task, name_list){
     name_button.addEventListener('click', function(){
         section_html.remove();
+
+        // Quitar la tarea del objeto :
+        let indexFound = obj_tasks[name_list].indexOf(name_task);
+        if(indexFound > -1){
+            obj_tasks[name_list].splice(indexFound, 1)
+        }
+        // Actualizar el L. S. :
+        let string_list = JSON.stringify(obj_tasks);
+        localStorage.setItem('listaDeTareas', string_list);
+
     });
 }
 
-function createEventButtonCheck(name_button, task_text,task_box){
+
+function createEventButtonCheck(name_button, task_text, task_box){
     name_button.addEventListener('click', function(){
 
-    // Quitar la tarea de tasks.to_do, task_text 
-    let indexFound = obj_tasks.to_do.indexOf( task_text );
-    if( indexFound > -1 ){                      // El indexFound si no encuentra nada devuelve -1
-        obj_tasks.to_do.splice( indexFound , 1 )// Elimino 1 elemento a partir del índice
-    }
-    console.log( obj_tasks );
+        // Quitar la tarea de tasks.to_do, task_text 
+        let indexFound = obj_tasks.to_do.indexOf( task_text );
+        if( indexFound > -1 ){  // El indexFound si no encuentra nada devuelve -1 (-1 es igual q decir >= 0)
+            obj_tasks.to_do.splice( indexFound , 1 )  // Elimino 1 elemento a partir del índice
+        }
+        console.log( obj_tasks );
 
-    // Eliminar VISUALMENTE la tarea del DOM
-    task_box.remove();
-    
-    // Añadir la tarea en task complete
-    add_task_completed(task_text);
+        // Eliminar VISUALMENTE la tarea del DOM
+        task_box.remove();
+        
+        // Añado tarea en el Array
+        obj_tasks.done.push(task_text);
 
-    // Añado tarea en el Array
-    obj_tasks.done.push(task_text);
+        // Convertir en String: -> TODO obj_tasks , tanto 'completadas' como 'por hacer'
+        let string_list = JSON.stringify(obj_tasks);
+        localStorage.setItem('listaDeTareas', string_list);
 
-    // Convertir en String: -> TODO obj_tasks , tanto completadas como por hacer
-    let string_list = JSON.stringify(obj_tasks);
-    localStorage.setItem('listaDeTareas', string_list);
+
+        // Añadir la tarea en la sección 'task complete'
+        add_task_completed(task_text);
     });
 }
 
@@ -235,14 +248,10 @@ let letras = ['sandía','plátano','Pera', 'manzana'];
 
 let valorABuscar = 'plátano';
 
-let index = letras.indexOf( valorABuscar );// Busca dentro del array y devuleve el indeice que le corresponde
+let index = letras.indexOf( valorABuscar );// Busca dentro del array y devuleve el indice que le corresponde
 console.log( index );
 
 if( index > -1){ // Index of devuelve -1 si el elemento que busca NO está dentro del array
-    letras.splice( index , 1 ) // A partir del indice sólo un elemento
+    letras.splice( index , 1 ) // splice quita elementos tantos elementos como le digas a partir del index dado
 }
-
-
-
-
 
