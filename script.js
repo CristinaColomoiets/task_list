@@ -225,33 +225,3 @@ function createEventButtonCheck(name_button, task_text, task_box){
         add_task_completed(task_text);
     });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Ejemplo para encontrar y eliminar un objeto de un Array:
-//              0           1       2       3
-let letras = ['sandía','plátano','Pera', 'manzana'];
-
-let valorABuscar = 'plátano';
-
-let index = letras.indexOf( valorABuscar );// Busca dentro del array y devuleve el indice que le corresponde
-console.log( index );
-
-if( index > -1){ // Index of devuelve -1 si el elemento que busca NO está dentro del array
-    letras.splice( index , 1 ) // splice quita elementos tantos elementos como le digas a partir del index dado
-}
-

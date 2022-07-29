@@ -220,6 +220,10 @@ body{
 }
 
 @media screen and(max-width: 600px){
+    .h1-tittle{
+        font-size: 2rem;
+    }
+
     .to_do-input{
         padding: 1rem;
     }
