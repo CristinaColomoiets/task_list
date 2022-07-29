@@ -237,7 +237,7 @@ body {
 .to_do-li-task-box {
   width: 95%;
   margin: 1rem auto;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem 0.6rem;
   border: 1px solid var(--color-border);
   border-radius: 2rem;
   display: -webkit-box;
@@ -363,4 +363,75 @@ body {
   height: 1.5rem;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+@media screen and (max-width: 1000px) {
+  .to_do-input {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .to_do-li-task-box {
+    padding: 0.3rem 0.5rem;
+    border-radius: 2rem;
+  }
+
+  .to_do-button-task {
+    margin: 0 0.3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .to_do-svg-task {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  .to_do .box-desactive {
+    padding: 0.3rem 0.5rem;
+    border-radius: 2rem;
+  }
+
+  .to_do .btn-desactive {
+    margin: 0 0.3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .to_do .svg-desactive {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .to_do-input {
+    padding: 1rem;
+  }
+
+  .to_do-button-add {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .to_do-button-task {
+    margin: 0 0.2rem;
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .to_do-svg-task {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .to_do .btn-desactive {
+    margin: 0 0.3rem;
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .to_do .svg-desactive {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
 }
