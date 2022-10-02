@@ -10,7 +10,7 @@
         - Vaciar el Input despues de añadir la tarea a la lista por Hacer--- ✓
 
         Guardar el Valor en el Array de tareas por Hacer // push
-        Guardar los valores en Local Storage ---> falta por verlo
+        Guardar los valores en Local Storage --- ✓ 
 
         y PINTAR en la zona de tareas por HACER --- ✓
     
